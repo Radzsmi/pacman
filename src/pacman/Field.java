@@ -5,11 +5,21 @@ import java.util.*;
 public class Field {
 	int value;
 	int id;
+	Pellet pellet=null;
 	HashMap<Integer,Field> neighbours;
-	public Field(int i,int idp) {
+	public Field(int i,int idp,boolean haspellet) {
 		neighbours=new HashMap<Integer,Field>();
 		value=i;
 		id=idp;
+		if(haspellet) pellet=new Pellet();
+	}
+	public Pellet getPellet() {return pellet;}
+	public void setPellet(Pellet p) {pellet=p;}
+	public int removePellet() {
+		int i=0;
+		if(pellet!=null)i=pellet.remove();
+		pellet=null; 
+		return i;
 	}
 	public void init(int i,Field f) {
 		neighbours.put(i,f);

@@ -7,4 +7,5 @@ public class Thing {
 	public int getY() {return y;}
 	public void setX(int nx) {x=nx;}
 	public void setY(int ny) {y=ny;}
+	public Field getField() {return f;}
 }

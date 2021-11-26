@@ -10,7 +10,7 @@ public class PacFrame extends JFrame {
 	String name;
 	PacFrame(String s){
 		name=s;
-		Board b = new Board();
+		Board b = new Board(this);
 		b.setBackground(Color.black);
 		this.add(b);
 		this.setBackground(Color.black);

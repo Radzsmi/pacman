@@ -5,8 +5,9 @@ import java.awt.event.KeyEvent;
 
 public class KeyListener extends KeyAdapter {
 	Pacman p;
+	PacFrame f;
 	boolean ingame=true;
-	KeyListener(Pacman pp){p=pp;}
+	KeyListener(Pacman pp,PacFrame fr){p=pp; f=fr;}
     public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();
@@ -20,6 +21,9 @@ public class KeyListener extends KeyAdapter {
                 p.setD(1);
             } else if (key == KeyEvent.VK_DOWN) {
                 p.setD(4);
+            }else if(key == KeyEvent.VK_SPACE && p.getDead()) {
+            	f.dispose();
+            	new Menu();
             }
         }
     }
