@@ -2,6 +2,7 @@ package pacman;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,9 +22,15 @@ public class HpPelletTest {
 	}
 
 	@Test
-	public void test() {
-		p.move();
-		
+	public void HpPelletRemovetest() {
+		for(int i =0;i<23;i++) p.move();
+		Assert.assertEquals("Megkapta a pontot",25,p.move());
+	}
+	@Test
+	public void HpPelletRemovetest2() {
+		p.setLives(1);
+		for(int i =0;i<23;i++) p.move();
+		Assert.assertEquals("Megkapta a pontot",0,p.move());
 	}
 
 }

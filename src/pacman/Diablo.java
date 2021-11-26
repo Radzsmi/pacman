@@ -27,10 +27,6 @@ public class Diablo extends Ghost {
 			pacy.add(p.getY());
 			pacfield.add(p.getField());
 			counter++;
-			System.out.println(pacdir);
-			System.out.println(pacdir);
-			System.out.println(pacdir);
-			System.out.println(pacdir);
 			if(pacdelay==0) {
 				x=pacx.get(0);
 				y=pacy.get(0);
