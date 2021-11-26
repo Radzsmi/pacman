@@ -44,10 +44,17 @@ public class Board extends JPanel implements ActionListener {
         }
     }
     public boolean checkPacDead() {
+    	
         for (int i = 0; i < ghosts.size(); i++) {
+        if(ghosts.get(i).getField()!=null) {
             if (ghosts.get(i).getField().equals(pac.getField()) && !pac.getKiller())
                 return true;
             if (ghosts.get(i).getField().equals(pac.getField()) && ghosts.get(i).getId()==2) {
+            	pac.setKiller(false);
+            	return true;
+            }
+            if(ghosts.get(i).getField().getNeig(pac.getD())!=null)
+            if (ghosts.get(i).getField().getNeig(pac.getD()).equals(pac.getField()) && ghosts.get(i).getId()==2) {
             	pac.setKiller(false);
             	return true;
             }
@@ -55,6 +62,7 @@ public class Board extends JPanel implements ActionListener {
                 ghosts.remove(i);
                 pac.setKiller(false);
             }
+        }
         }
         return false;
     }
@@ -99,7 +107,7 @@ public class Board extends JPanel implements ActionListener {
         ghosts.add(new Ghost(map.get(26 * 25), 0, 25));
         ghosts.add(new Ghost(map.get(26 * 26 - 1), 25, 25));
         pac = new Pacman(map.get(26 * 12 + 12));
-        ghosts.add(new Diablo(map.get(26 * 12 + 12), -10, -10, pac));
+        ghosts.add(new Diablo(null, -10, -10, pac));
         map.get(0).setPellet(new HpPellet(pac));
         map.get(25).setPellet(new KillerPellet(pac));
         map.get(26 * 25).setPellet(new KillerPellet(pac));

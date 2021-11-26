@@ -17,6 +17,10 @@ public class Diablo extends Ghost {
 		f=fp;
 	}
 	public int getId() {return 2;}
+	public Field getField() {
+		if(pacdelay!=0)return null;
+		return f;
+	}
 	public void move() {
 		if(pacdelay!=0) pacdelay--;
 		if(counter==0) {

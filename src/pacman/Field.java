@@ -41,6 +41,7 @@ public class Field {
 		return neighbours;
 	}
 	public Field getNeig(int direction) {
+		if(direction==0) return null;
 		return neighbours.get(direction);
 	}
 }
